@@ -12,7 +12,7 @@
 		EA0EC7A424D36CFD00D3E61D /* PersonsData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EA0EC7A224D36CFD00D3E61D /* PersonsData.xcdatamodeld */; };
 		EA0EC7A624D36CFE00D3E61D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA0EC7A524D36CFE00D3E61D /* Assets.xcassets */; };
 		EA0EC7A924D36CFE00D3E61D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA0EC7A724D36CFE00D3E61D /* LaunchScreen.storyboard */; };
-		EA0EC7B824D36DEC00D3E61D /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0EC7B724D36DEC00D3E61D /* TableViewController.swift */; };
+		EA0EC7B824D36DEC00D3E61D /* PersonsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0EC7B724D36DEC00D3E61D /* PersonsTableViewController.swift */; };
 		EA0EC7BB24D3706B00D3E61D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA0EC7BA24D3706B00D3E61D /* Constants.swift */; };
 		EA5A87D224D814DA00D47B6F /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5A87D124D814DA00D47B6F /* CoreDataManager.swift */; };
 		EA5A87E224D85A8000D47B6F /* Person+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA5A87E024D85A8000D47B6F /* Person+CoreDataClass.swift */; };
@@ -27,7 +27,7 @@
 		EA0EC7A524D36CFE00D3E61D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EA0EC7A824D36CFE00D3E61D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EA0EC7AA24D36CFE00D3E61D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EA0EC7B724D36DEC00D3E61D /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		EA0EC7B724D36DEC00D3E61D /* PersonsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonsTableViewController.swift; sourceTree = "<group>"; };
 		EA0EC7BA24D3706B00D3E61D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		EA5A87D124D814DA00D47B6F /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		EA5A87E024D85A8000D47B6F /* Person+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Person+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -97,7 +97,7 @@
 		EA0EC7B924D36DF000D3E61D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				EA0EC7B724D36DEC00D3E61D /* TableViewController.swift */,
+				EA0EC7B724D36DEC00D3E61D /* PersonsTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -191,7 +191,7 @@
 			files = (
 				EA0EC7A424D36CFD00D3E61D /* PersonsData.xcdatamodeld in Sources */,
 				EA5A87E224D85A8000D47B6F /* Person+CoreDataClass.swift in Sources */,
-				EA0EC7B824D36DEC00D3E61D /* TableViewController.swift in Sources */,
+				EA0EC7B824D36DEC00D3E61D /* PersonsTableViewController.swift in Sources */,
 				EA0EC7BB24D3706B00D3E61D /* Constants.swift in Sources */,
 				EA5A87E324D85A8000D47B6F /* Person+CoreDataProperties.swift in Sources */,
 				EA0EC79A24D36CFD00D3E61D /* AppDelegate.swift in Sources */,

@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class TableViewController: UITableViewController {
+final class PersonsTableViewController: UITableViewController {
     
     private let coreDataManager = CoreDataManager()
     private let searchController = UISearchController(searchResultsController: nil)
@@ -82,7 +82,7 @@ final class TableViewController: UITableViewController {
                 self.persons = persons
                 tableView.reloadData()
             case .failure(let error):
-                showAlert(with: "Unable to fetch data", and: "Something wrong")
+                showAlert(with: "Unable to fetch persons", and: "Please try again")
                 print(error.localizedDescription)
             }
         }
@@ -180,7 +180,9 @@ final class TableViewController: UITableViewController {
     }
 }
 
-extension TableViewController: UISearchResultsUpdating {
+    // MARK: - UISearchResultsUpdating
+
+extension PersonsTableViewController: UISearchResultsUpdating {
     
     func updateSearchResults(for searchController: UISearchController) {
         filterPersons(for: searchController.searchBar.text!)

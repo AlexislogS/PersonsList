@@ -17,7 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
         window?.tintColor = .black
-        window?.rootViewController = UINavigationController(rootViewController: TableViewController())
+        window?.rootViewController = UINavigationController(rootViewController: PersonsTableViewController())
         window?.makeKeyAndVisible()
     }
 
