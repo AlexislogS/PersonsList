@@ -167,7 +167,7 @@ final class PersonsTableViewController: UITableViewController {
         showAlert(with: "Change name", and: "Please enter new name") { text in
             let person = self.isFiltering ? self.filteredPersons[indexPath.row] : self.persons[indexPath.row]
             person.name = text
-            self.coreDataManager.edit(person: person, name: text) { result in
+            self.coreDataManager.edit(person: person) { result in
                 switch result {
                 case .success():
                     self.tableView.reloadRows(at: [indexPath], with: .automatic)

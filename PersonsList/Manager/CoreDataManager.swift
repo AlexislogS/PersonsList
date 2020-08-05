@@ -76,7 +76,7 @@ final class CoreDataManager {
     
     // MARK: - Edit person
     
-    func edit(person: Person, name: String, completion: (_ result: Result<Void, Error>) -> Void) {
+    func edit(person: Person, completion: (_ result: Result<Void, Error>) -> Void) {
         do {
             try self.persistentContainer.viewContext.save()
             completion(.success(()))
