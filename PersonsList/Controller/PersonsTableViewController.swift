@@ -9,8 +9,7 @@
 import UIKit
 
 final class PersonsTableViewController: UITableViewController {
-    
-    private let coreDataManager = CoreDataManager()
+
     private let searchController = UISearchController(searchResultsController: nil)
     private var persons = [Person]()
     private var filteredPersons = [Person]()
@@ -21,12 +20,22 @@ final class PersonsTableViewController: UITableViewController {
     private var isFiltering: Bool {
         return searchController.isActive && !searchBarIsEmpty
     }
-
+    private let coreDataManager: CoreDataManager
+    
+    init(coreDataManager: CoreDataManager) {
+        self.coreDataManager = coreDataManager
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationItem()
         tableView.register(UITableViewCell.self,
-                           forCellReuseIdentifier: Constants.cellID)
+                           forCellReuseIdentifier: Cell.id)
         fetchPersons()
     }
 
@@ -39,7 +48,7 @@ final class PersonsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView,
                             cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellID,
+        let cell = tableView.dequeueReusableCell(withIdentifier: Cell.id,
                                                  for: indexPath)
         let person = isFiltering ? filteredPersons[indexPath.row] : persons[indexPath.row]
         cell.textLabel?.text = person.name
@@ -82,8 +91,7 @@ final class PersonsTableViewController: UITableViewController {
                 self.persons = persons
                 tableView.reloadData()
             case .failure(let error):
-                showAlert(with: "Unable to fetch persons", and: "Please try again")
-                print(error.localizedDescription)
+                showAlert(with: AlertTitle.fetch.title, and: error.localizedDescription)
             }
         }
     }
@@ -94,7 +102,7 @@ final class PersonsTableViewController: UITableViewController {
         let alert = UIAlertController(title: title,
                                       message: message,
                                       preferredStyle: .alert)
-        if title == "Add person" || title == "Change name" {
+        if title == AlertTitle.add || title == AlertTitle.change {
             alert.addTextField { textFiled in
                 textFiled.placeholder = "New person"
             }
@@ -108,7 +116,7 @@ final class PersonsTableViewController: UITableViewController {
                                             completion?(text)
                                         }
         }))
-        if title == "Change name", let indexPath = tableView.indexPathForSelectedRow {
+        if title == AlertTitle.change, let indexPath = tableView.indexPathForSelectedRow {
             let person = isFiltering ? filteredPersons[indexPath.row] : persons[indexPath.row]
             alert.textFields?.first?.text = person.name
         }
@@ -122,8 +130,7 @@ final class PersonsTableViewController: UITableViewController {
     // MARK: - Core Data Stack
     
     private func savePerson() {
-        showAlert(with: "Add person", and: "Please enter person name") { text in
-            
+        showAlert(with: AlertTitle.add, and: AlertTitle.enterName) { text in
             self.coreDataManager.savePerson(with: text) { result in
                 switch result {
                 case .success(let person):
@@ -132,8 +139,7 @@ final class PersonsTableViewController: UITableViewController {
                                                               section: 0)],
                                                with: .automatic)
                 case .failure(let error):
-                    self.showAlert(with: "Failed to save", and: "Please try again")
-                    print(error.localizedDescription)
+                    self.showAlert(with: AlertTitle.save.title, and: error.localizedDescription)
                 }
             }
         }
@@ -157,14 +163,13 @@ final class PersonsTableViewController: UITableViewController {
                 }
                 tableView.deleteRows(at: [indexPath], with: .automatic)
             case .failure(let error):
-                showAlert(with: "Unable to delete", and: "Please try again")
-                print(error.localizedDescription)
+                showAlert(with: AlertTitle.delete.title, and: error.localizedDescription)
             }
         }
     }
     
     private func editPerson(at indexPath: IndexPath) {
-        showAlert(with: "Change name", and: "Please enter new name") { text in
+        showAlert(with: AlertTitle.change, and: AlertTitle.enterName) { text in
             let person = self.isFiltering ? self.filteredPersons[indexPath.row] : self.persons[indexPath.row]
             person.name = text
             self.coreDataManager.edit(person: person) { result in
@@ -172,8 +177,7 @@ final class PersonsTableViewController: UITableViewController {
                 case .success():
                     self.tableView.reloadRows(at: [indexPath], with: .automatic)
                 case .failure(let error):
-                    self.showAlert(with: "Unable to edit", and: "Please try again")
-                    print(error.localizedDescription)
+                    self.showAlert(with: AlertTitle.edit.title, and: error.localizedDescription)
                 }
             }
         }

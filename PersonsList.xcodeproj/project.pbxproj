@@ -67,6 +67,7 @@
 				EA0EC7B424D36D5200D3E61D /* Models */,
 				EA0EC7B924D36DF000D3E61D /* Controller */,
 				EA5A87D524D826DB00D47B6F /* Manager */,
+				EA53903A2505230C006E62D5 /* Resources */,
 				EA0EC7B524D36D6200D3E61D /* Supporting Files */,
 			);
 			path = PersonsList;
@@ -84,11 +85,8 @@
 		EA0EC7B524D36D6200D3E61D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				EA0EC7BA24D3706B00D3E61D /* Constants.swift */,
 				EA0EC79924D36CFD00D3E61D /* AppDelegate.swift */,
 				EA0EC79B24D36CFD00D3E61D /* SceneDelegate.swift */,
-				EA0EC7A524D36CFE00D3E61D /* Assets.xcassets */,
-				EA0EC7A724D36CFE00D3E61D /* LaunchScreen.storyboard */,
 				EA0EC7AA24D36CFE00D3E61D /* Info.plist */,
 			);
 			path = "Supporting Files";
@@ -100,6 +98,16 @@
 				EA0EC7B724D36DEC00D3E61D /* PersonsTableViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		EA53903A2505230C006E62D5 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				EA0EC7BA24D3706B00D3E61D /* Constants.swift */,
+				EA0EC7A524D36CFE00D3E61D /* Assets.xcassets */,
+				EA0EC7A724D36CFE00D3E61D /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		EA5A87D524D826DB00D47B6F /* Manager */ = {
